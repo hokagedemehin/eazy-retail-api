@@ -1,0 +1,62 @@
+************** CPANEL LOGIN DETAILS **************
+https://mymoolahapp.com:2083/
+User: mymoolah
+Password: Mym00l@h
+
+********** SQL DATABASE *****************
+easyretailuser
+6^F=z!TU+aZG
+
+User: mymoolah_easyretailuser
+Database: mymoolah_easyretail
+
+********* TERMINAL ENV **************
+source /home/mymoolah/virtualenv/eazy_retail/3.10/bin/activate && cd /home/mymoolah/eazy_retail
+
+/home/mymoolah/virtualenv/eazy_retail/3.10/lib/python3.10/site-packages
+
+************* DJANGO SETTINGS *************
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mymoolah_easyretail',
+        'USER': 'mymoolah_easyretailuser',
+        'PASSWORD': '6^F=z!TU+aZG',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+STATIC_URL = 'static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = 'home/mymoolah/easyRetailApi/static'
+
+cd..
+.\venv\Scripts\activate
+
+####################### PIP ############################
+py -m pip install --upgrade pip
+py -m pip install SomePackage            # latest version
+py -m pip install SomePackage==1.0.4     # specific version
+py -m pip install 'SomePackage>=1.0.4'   # minimum version
+py -m pip install -r requirements.txt
+py -m pip freeze > requirements.txt
+py -m pip uninstall SomePackage
+py -m pip list
+py -m pip list --outdated
+py -m pip search "query"
+
+########################## DJANGO ########################
+py manage.py runserver
+py manage.py migrate
+py manage.py makemigrations <app-name>
+py manage.py makemigrations && py manage.py migrate
+py manage.py createsuperuser --username=demibk --email='' --password=''
+
+######################## TAILWIND CSS #####################
+py manage.py tailwind start
+py manage.py tailwind build
+
+view@email.com
+lolaview1
+lolaview1
