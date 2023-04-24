@@ -35,7 +35,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY='django-insecure-2-if7)=zcwj90l931$=dcwq(qmu0@u43(j#l4)!l$674k^cc!c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+# ????? DEBUG ????????????
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -53,6 +55,10 @@ INSTALLED_APPS = [
     'rest_framework',
     "rest_framework.authtoken",
     "corsheaders",
+    'tailwind',
+    'theme',
+    'django_browser_reload',
+    'drf_yasg',
 
     'users.apps.UsersConfig',
 ]
@@ -66,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'easyRetailApi.urls'
@@ -73,7 +80,7 @@ ROOT_URLCONF = 'easyRetailApi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,22 +99,23 @@ WSGI_APPLICATION = 'easyRetailApi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'mymoolah_easyretail',
-#         'USER': 'mymoolah_easyretailuser',
-#         'PASSWORD': '6^F=z!TU+aZG',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# ??????? CPANEL DATABASE ????
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mymoolah_easyretail',
+        'USER': 'mymoolah_easyretailuser',
+        'PASSWORD': '6^F=z!TU+aZG',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 
 # Password validation
@@ -147,7 +155,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_ROOT = 'static'
+# STATIC_ROOT = 'static'
+
+# ????? CPANEL SETTINGS ?????
+STATIC_ROOT = '/home/mymoolah/eazy_retail/static'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -184,3 +196,26 @@ CSRF_TRUSTED_ORIGINS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# TAILWIND CSS
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+# SWAGGER SETTINGS
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        },
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    
+    },
+    # 'USE_SESSION_AUTH': False,
+}

@@ -1,3 +1,7 @@
+*************** CPANEL FILES TO CHANGE **************
+settings.py
+init.py
+
 ************** CPANEL LOGIN DETAILS **************
 https://mymoolahapp.com:2083/
 User: mymoolah
